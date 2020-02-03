@@ -30,17 +30,3 @@ ComfyJS.onCommand = ( user, command, message ) => {
   }
 }
 ComfyJS.Init( process.env.TWITCHUSER, process.env.OAUTH );
-
-const ComfyDiscord = require( "comfydiscord" );
-ComfyDiscord.onCommand = ( channel, user, command, message, flags, extra ) => {
-  // if( channel === "discordbotjam" ) {
-    if( command === "name" ) {
-      var name = adjectives[ getRandomInt( adjectives.length ) ] + " " + nouns[ getRandomInt( nouns.length ) ];
-      if( Math.random() < 0.25 ) {
-        name = adjectives[ getRandomInt( adjectives.length ) ] + " " + name;
-      }
-      ComfyDiscord.Say( channel, "<@" + extra.userId + "> " + name );
-    }
-  // }
-}
-ComfyDiscord.Init( process.env.DISCORDTOKEN );
